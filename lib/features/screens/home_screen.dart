@@ -91,6 +91,7 @@ class HomeScreen extends StatelessWidget with HomeHelper {
                                         ),
                                         title: Text(countries[index].name),
                                         subtitle: Text("${countries[index].currencyName} (${countries[index].currencyId})"),
+                                        trailing: Text(countries[index].currencySymbol),
                                       );
                                     }
                                 )

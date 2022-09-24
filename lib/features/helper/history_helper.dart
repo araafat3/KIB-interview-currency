@@ -30,7 +30,7 @@ class HistoryHelper{
       history = List<History>.from(historyModel["KWD_USD"].entries.map( (entry) =>  History(date: entry.key,value: entry.value)).toList());
       return historyModel;
     } on DioError catch(error){
-
+      rethrow;
     }
   }
 

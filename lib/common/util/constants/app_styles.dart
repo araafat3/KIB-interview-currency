@@ -19,4 +19,12 @@ class AppStyles {
       fontSize: 22,
       fontWeight: FontWeight.bold,
       color: Colors.black);
+
+  static UnderlineInputBorder underlineInputBorder = UnderlineInputBorder(
+    borderSide: BorderSide(color: Colors.blue),
+  );
+
+  static TextStyle hintStyle=TextStyle(
+    fontSize: 20,
+    color: Colors.black,);
 }

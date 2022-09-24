@@ -34,15 +34,23 @@ abstract class HomeHelper{
   }
 
   getCountries() async {
-    var storageCountires =LocalStorage().readFromStorage(key: Storagekeys.COUNTRIES);
-    if(storageCountires!=null){
-      countriesModel= storageCountires;
+    if(isCountriesOnLocal()){
       _countriesList = countriesModel["results"].entries.map( (entry) =>  entry.value).toList();
       countries=countriesModelFromJson(jsonEncode(_countriesList));
       return countriesModel;
     }else {
       await fetchCountries();
       return countriesModel;
+    }
+  }
+
+  isCountriesOnLocal(){
+    var storageCountires =LocalStorage().readFromStorage(key: Storagekeys.COUNTRIES);
+    if(storageCountires!=null){
+      countriesModel = storageCountires;
+      return true;
+    }else{
+      return false;
     }
   }
 

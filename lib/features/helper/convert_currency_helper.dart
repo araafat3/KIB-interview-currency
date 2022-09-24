@@ -7,7 +7,7 @@ import '../../common/helper/network_layer.dart';
 import '../../common/util/constants/api_codes.dart';
 import '../../common/util/constants/app_data.dart';
 
-class ConvertCurrencyHelper{
+abstract class ConvertCurrencyHelper{
   late TextEditingController currencyController1;
   late TextEditingController currencyController2;
   late TextEditingController amountController;

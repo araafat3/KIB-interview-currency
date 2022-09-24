@@ -28,13 +28,17 @@ class HistoryScreen extends StatelessWidget with HistoryHelper {
                     builder: (BuildContext context,AsyncSnapshot snapshot) {
                       if(snapshot.hasData){
                         if(history.length>0){
-                          return Column(
-                            children: history.map((item){
-                              return ListTile(
-                                title: Text(item.date),
-                                subtitle: Text(item.value.toString()),
-                              );
-                            }).toList(),
+                          return Flexible(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: history.map((item){
+                                  return ListTile(
+                                    title: Text(item.date),
+                                    subtitle: Text(item.value.toStringAsFixed(2)),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
                           );
                         }else{
                           return Expanded(

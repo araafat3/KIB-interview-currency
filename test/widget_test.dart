@@ -7,6 +7,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:kib/common/helper/local_storage.dart';
+import 'package:kib/features/helper/home_helper.dart';
+import 'package:kib/features/screens/home_screen.dart';
 
 import 'package:kib/main.dart';
 
@@ -26,5 +29,14 @@ void main() {
     // Verify that our counter has incremented.
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
+  });
+
+  test("testing is countries saved on Local",() async {
+    HomeHelper _homeHelper=new HomeScreen();
+    bool result;
+    var countriesModel = await _homeHelper.fetchCountries();
+    result = countriesModel.isNotEmpty;
+
+    expect(result, true);
   });
 }
